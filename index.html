@@ -59,10 +59,10 @@
     }
     .discord-button {
       display: inline-block;
-      margin-top: 1rem; /* Adjust spacing as needed */
+      margin-top: 1rem;
       padding: 1rem 2.5rem;
       font-size: 1.1rem;
-      background: #7289da; /* Discord color */
+      background: #7289da;
       color: white;
       text-decoration: none;
       border-radius: 0 20px 0 20px;
@@ -72,6 +72,22 @@
     .discord-button:hover {
       transform: translateY(-4px) skewX(-5deg);
       box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+    }
+    .secret-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.9rem;
+      background: #7289da;
+      color: white;
+      text-decoration: none;
+      border-radius: 0 15px 0 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .secret-button:hover {
+      transform: translateY(-4px) skewX(-5deg);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.6);
     }
     .developer-comments {
       background: rgba(255, 255, 255, 0.8);
@@ -102,8 +118,6 @@
       color: #888;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
-
-    /* Leaf style and animation */
     .leaf {
       position: absolute;
       width: 40px;
@@ -115,7 +129,6 @@
       will-change: transform, opacity;
       animation-fill-mode: forwards;
     }
-
     @keyframes fallRotateDrift {
       0% {
         transform: translate(0, 0) rotate(0deg);
@@ -135,80 +148,58 @@
     <a href="#play" class="cta-button">Play Now</a>
     <a href="https://discord.gg/5RYEqyhqNJ" class="discord-button" target="_blank">Join Discord</a>
   </header>
-
   <main>
     <section class="developer-comments">
       <h2>From the Lead Developer</h2>
       <p>“Its cool. Play it” ~ TOREM ~ Lead developer</p>
     </section>
-    
     <section class="developer-comments">
       <h2>From the Co-Founder</h2>
       <p>“The musics good. Try it” ~ Asteria ~ Co-founder</p>
     </section>
-    
     <section class="developer-comments">
       <h2>From The Artist</h2>
       <p>“praise tortoise” ~ Natanielm ~ The Artist</p>
     </section>
   </main>
-
   <footer>
     <p>&copy; 2025 Pixelia Studios. All Rights Reserved.</p>
     <p>Join our <a href="https://discord.gg/5RYEqyhqNJ" style="color: #3d99ff; text-decoration: none;" target="_blank">Discord</a> for updates!</p>
     <a href="https://info.flagcounter.com/zgHs"><img src="https://s01.flagcounter.com/count2/zgHs/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_3/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+    <a href="secret" class="secret-button">?</a>
   </footer>
-
   <script>
     const title = document.getElementById('pixelia-title');
     let leafInterval;
-
     function createLeaf() {
       const leaf = document.createElement('div');
       leaf.classList.add('leaf');
-
-      // Starting horizontal position near the center of the title, with some random spread
       const titleRect = title.getBoundingClientRect();
       const startX = titleRect.left + titleRect.width / 2 + (Math.random() * 80 - 40);
-
       leaf.style.left = `${startX}px`;
       leaf.style.top = `${titleRect.bottom}px`;
-
-      // Random horizontal drift between -60px and 60px
       const driftX = (Math.random() * 120) - 60;
       leaf.style.setProperty('--drift-x', `${driftX}px`);
-
-      // Random animation duration between 2.5s and 4s
       const duration = 2.5 + Math.random() * 1.5;
-
       leaf.style.animation = `fallRotateDrift ${duration}s ease-in forwards`;
-
       document.body.appendChild(leaf);
-
-      // Remove the leaf after animation finishes
       leaf.addEventListener('animationend', () => {
         leaf.remove();
       });
     }
-
     function startFallingLeaves() {
       if (!leafInterval) {
         leafInterval = setInterval(() => {
           createLeaf();
-        }, 300); // Create a leaf every 300ms while hovering
+        }, 300);
       }
     }
-
     function stopFallingLeaves() {
       clearInterval(leafInterval);
       leafInterval = null;
     }
-
     title.addEventListener('mouseenter', startFallingLeaves);
     title.addEventListener('mouseleave', stopFallingLeaves);
   </script>
 </body>
 </html>
-
-
-
