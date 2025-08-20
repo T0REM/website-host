@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixelia Game - Official Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-title">
+            <h1>PIXELIA</h1>
+        </div>
+        <nav class="navbar">
+            <div class="nav-containers">
+                <div class="nav-container active" onclick="showSection('home')">
+                    <span>HOME</span>
+                </div>
+                <div class="nav-separator"></div>
+                <div class="nav-container" onclick="showSection('faq')">
+                    <span>FAQ</span>
+                </div>
+                <div class="nav-separator"></div>
+                <div class="nav-container" onclick="showSection('socials')">
+                    <span>SOCIAL MEDIA</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section id="home" class="content-section active">
+            <div class="hero">
+                <h2>Welcome to Pixelia</h2>
+                <p>Embark on an epic pixel adventure through mystical lands</p>
+                <button class="cta-button">Play Now</button>
+            </div>
+            <div class="game-features">
+                <div class="feature">
+                    <h3>Note from the Lead Developer:</h3>
+                    <p>“Its cool. Play it”</p>
+                </div>
+                <div class="feature">
+                    <h3>Note from the Co-founder:</h3>
+                    <p>“The musics good. Try it” </p>
+                </div>
+                <div class="feature">
+                    <h3>Note from the Artist:</h3>
+                    <p>“praise tortoise” </p>
+                </div>
+            </div>
+            <div class="gallery-section-container">
+                <div class="gallery-section">
+                    <h2>Game Gallery</h2>
+                    <div class="gallery-container">
+                        <div class="gallery-item active">
+                            <img src="./assets/pixel.gif" alt="Pixel Animation" class="gallery-image">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./assets/pixelia.gif" alt="Pixelia Animation" class="gallery-image">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="./assets/pixie.gif" alt="Pixie Animation" class="gallery-image">
+                        </div>
+                        <div class="gallery-navigation">
+                            <div class="gallery-arrow disabled" id="prevArrow" onclick="previousGalleryItem()">‹</div>
+                            <div class="gallery-arrow" id="nextArrow" onclick="nextGalleryItem()">›</div>
+                        </div>
+                    </div>
+                    <div class="gallery-controls" onclick="handleGalleryClick(event)">
+                        <div class="gallery-progress-line"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="content-section">
+            <div class="faq-container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>Q1?</h3>
+                    <p>Pixelia.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Q2?</h3>
+                    <p>Yes!</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Q3</h3>
+                    <p>Absolutely!</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Q4</h3>
+                    <p>Onise</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="socials" class="content-section">
+            <div class="socials-container">
+                <div class="socials-content">
+                    <div class="left-side">
+                        <img src="./assets/gs.gif" alt="Game Screenshot" class="social-gif">
+                        <p class="socials-text">Get updated about the game on our social medias!</p>
+                    </div>
+                    <div class="social-buttons">
+                        <a href="#" class="social-button youtube" onclick="createLeafAnimation(event)">
+                            <img src="./assets/YT.webp" alt="YouTube" class="social-icon-img">
+                            <span>YouTube</span>
+                        </a>
+                        <a href="#" class="social-button discord" onclick="createLeafAnimation(event)">
+                            <img src="./assets/DC.webp" alt="Discord" class="social-icon-img">
+                            <span>Discord</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="logo-bottom">
+            <h2>© 2025 Pixelia Studios. All Rights Reserved.</h2>
+        </div>
+    </footer>
+
+    <div id="leaf-animation-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
