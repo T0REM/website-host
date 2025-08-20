@@ -6,7 +6,7 @@ function showSection(sectionName) {
         section.classList.remove('active');
     });
 
-    // Remove active class from ALL conatiners
+    // Remove active class from ALL containers
     const containers = document.querySelectorAll('.nav-container');
     containers.forEach(container => {
         container.classList.remove('active');
@@ -89,7 +89,7 @@ function createLeafAnimation(event) {
     }, 2000);
 }
 
-// Handle gallery progress line clickies
+// Handle gallery progress line clicks
 function handleGalleryClick(event) {
     const rect = event.currentTarget.getBoundingClientRect();
     const clickX = event.clientX - rect.left;
@@ -108,7 +108,7 @@ function handleGalleryClick(event) {
     showGalleryItem(index);
 }
 
-// Gallery navigation functionaluty/functions
+// Gallery navigation functionality/functions
 let currentGalleryIndex = 0;
 const totalGalleryItems = 3;
 
@@ -151,11 +151,13 @@ function updateArrowStates() {
 document.addEventListener('click', function(event) {
     // Only create animation for specific things
     if (event.target && event.target.closest) {
-        if (event.target.closest('.nav-container') || 
-            event.target.closest('.cta-button') || 
-            event.target.closest('.gallery-controls') ||
-            event.target.closest('.social-button') ||
-            event.target.closest('.gallery-arrow')) {
+        const target = event.target.closest('.nav-container') || 
+                      event.target.closest('.cta-button') || 
+                      event.target.closest('.gallery-controls') ||
+                      event.target.closest('.social-button') ||
+                      event.target.closest('.gallery-arrow');
+        
+        if (target) {
             createLeafAnimation(event);
         }
     }
@@ -165,10 +167,12 @@ document.addEventListener('click', function(event) {
 document.addEventListener('mouseenter', function(event) {
     // Create leaf animation on hover for buttons
     if (event.target && event.target.closest) {
-        if (event.target.closest('.nav-container') || 
-            event.target.closest('.cta-button') || 
-            event.target.closest('.social-button') ||
-            event.target.closest('.gallery-arrow')) {
+        const target = event.target.closest('.nav-container') || 
+                      event.target.closest('.cta-button') || 
+                      event.target.closest('.social-button') ||
+                      event.target.closest('.gallery-arrow');
+        
+        if (target) {
             createLeafAnimation(event);
         }
     }
